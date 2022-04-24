@@ -4,6 +4,8 @@ For Memory Management-: (runtime package)
 new()
 make() 
 
+DEFER works as Last in first Out
+
 
 ---------------------------------------------------------------- Terminal Commands 
  GOOS = "Linux" go build 
