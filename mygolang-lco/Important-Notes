@@ -2,13 +2,71 @@ Go TIME = "01-02-2006 15:04:05 Monday" -: Read in Documents
 
 For Memory Management-: (runtime package)
 new()
-make() 
+make()
 
 DEFER works as Last in first Out
 
+fmt.Printf // https://www.geeksforgeeks.org/fmt-printf-function-in-golang-with-examples/
+           // %T for type
+           // use %+v instead of %v for seeing the keyName in struct refer 11myStruct
 
----------------------------------------------------------------- Terminal Commands 
- GOOS = "Linux" go build 
+
+Random is used in 13switchCase
+
+goto used in 14myllop
+
+
+Tags     []string `json:"tags,omitempty"`
+  `json:"-"`
+// in 22bitmorejson basically use omitempty when if field empty do not show that and   `json:"-"` when do not show the field
+
+
+fmt.Printf("%#v\n", lcoCourse)
+// for viewing the struct properly refer golang/22bitmorejson
+
+-------------------------------------------------  Inside golang Folder Notes
+
+/Users/piyush/go/pkg/mod/cache/download/github.com
+//this is where the downloads are happening for golang
+
+go mod tidy // remove the indirect comment from the go.mod refer 23myModule
+go mod verify
+
+
+go list //not 100% correct result
+go list all // dumps all packages
+go list -m all // only useful package
+
+go list -m -versions github.com/gorilla/mux     // to print all versions
+go mod .. // all are expensive query
+
+ go mod graph // to see the dependencies
+
+ go mod edit -go 1.16
+ go mod edit -module 1.16
+
+ go mod vendor // to keep a local version of data in cache
+
+ go run main.go // take the data from the web or cache but not from vendor
+ go run -mod=vendor main.go // first try to take the data from the vendor then the web
+
+
+
+
+---------------------------------------------------------------- Terminal Commands
+ GOOS = "Linux" go build
  GOOS = "windows" go build
  go env
- go env GOPATH 
+ go env GOPATH
+
+
+ -----------------------------------------------
+ Create Folder
+ //run
+ go mod init
+
+
+ ----------------------------------------------------------- Starting Commands
+
+ Create New Folder -> make main.go
+ Write->  go mod init <someName>

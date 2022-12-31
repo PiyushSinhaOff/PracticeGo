@@ -22,5 +22,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(numRating+1)
+	fmt.Println(numRating + 1)
 }
+
+// https://pkg.go.dev/strconv

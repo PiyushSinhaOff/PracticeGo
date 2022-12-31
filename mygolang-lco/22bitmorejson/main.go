@@ -15,8 +15,8 @@ type course struct {
 
 func main() {
 	fmt.Println("Welcome to JSON video")
-	// EncodeJson()
-	DecodeJson()
+	EncodeJson()
+	//DecodeJson()
 }
 
 func EncodeJson() {
@@ -28,6 +28,12 @@ func EncodeJson() {
 	}
 
 	//package this data as JSON data
+
+	finalJson1, err := json.Marshal(lcoCourses)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%s\n", finalJson1)
 
 	finalJson, err := json.MarshalIndent(lcoCourses, "", "\t")
 	if err != nil {

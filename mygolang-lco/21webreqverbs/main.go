@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -23,7 +24,12 @@ func PerformGetRequest() {
 		panic(err)
 	}
 
-	defer response.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(response.Body)
 
 	fmt.Println("Status code: ", response.StatusCode)
 	fmt.Println("Content length is: ", response.ContentLength)
@@ -49,7 +55,7 @@ func PerformPostJsonRequest() {
 			"coursename":"Let's go with golang",
 			"price": 0,
 			"platform":"learnCodeOnline.in"
-		}
+		} 
 	`)
 
 	response, err := http.Post(myurl, "application/json", requestBody)
@@ -57,18 +63,22 @@ func PerformPostJsonRequest() {
 	if err != nil {
 		panic(err)
 	}
-	defer response.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(response.Body)
 
 	content, _ := ioutil.ReadAll(response.Body)
 
-	fmt.Println(string(content))	// Better to use the strings.Builder in actual usecase
+	fmt.Println(string(content)) // Better to use the strings.Builder in actual usecase
 }
 
 func PerformPostFormRequest() {
 	const myurl = "http://localhost:8000/postform"
 
 	//formdata
-
 	data := url.Values{}
 	data.Add("firstname", "hitesh")
 	data.Add("lastname", "choudhary")

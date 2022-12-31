@@ -11,7 +11,8 @@ func adder(values ...int) (int, int) {
 	total := 0
 	totalMult := 1
 
-	for _, v := range values {
+	for index, v := range values {
+		fmt.Println(index)
 		total += v
 		totalMult *= v
 	}

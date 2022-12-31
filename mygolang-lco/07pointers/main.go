@@ -16,4 +16,7 @@ func main() {
 
 	*ptr = *ptr * 2
 	fmt.Println(myNumber, *ptr)
+
+	myNumber += myNumber
+	fmt.Println(myNumber, *ptr)
 }

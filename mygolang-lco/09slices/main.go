@@ -29,18 +29,23 @@ func main() {
 	fmt.Println(highScoreList)
 
 	fmt.Println(sort.IntsAreSorted(highScoreList))
-	sort.Ints(highScoreList)
+
+	//sort.Ints(highScoreList)
+
+	sort.Slice(highScoreList, func(i, j int) bool {
+		return highScoreList[i] > highScoreList[j]
+	})
+
 	fmt.Println(highScoreList)
 
 	//Booleans values
 	fmt.Println(sort.IntsAreSorted(highScoreList))
 
-
-	//How to remove the value from slics on index 
-	index := 1 
+	//How to remove the value from slics on index
+	index := 1
 	highScoreList = append(highScoreList[:index], highScoreList[index+1:]...)
 	fmt.Println(highScoreList)
 
-	// How to remove the values from slics on values 
-	
+	// How to remove the values from slics on values
+
 }

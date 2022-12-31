@@ -2,9 +2,13 @@ package main
 
 import "fmt"
 
-const LoginToken string = "qwerty" // Public 
+const LoginToken string = "qwerty" // Public
+const loginToken string = "qwerty" // Public
 
 func main() {
+
+	fmt.Println(loginToken)
+
 	var username string = "Piyush"
 	fmt.Println(username)
 	fmt.Printf("variabe is of Type: %T \n", username)

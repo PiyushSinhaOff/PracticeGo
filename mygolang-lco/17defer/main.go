@@ -2,8 +2,6 @@ package main
 
 import "fmt"
 
-
-
 func main() {
 	defer fmt.Println("World")
 	defer fmt.Println("One")
@@ -13,8 +11,8 @@ func main() {
 	myDefer()
 }
 
-func myDefer(){
-	for i:=1;i<6;i++{
-		defer fmt.Println(i);
+func myDefer() {
+	for i := 1; i < 6; i++ {
+		defer fmt.Println(i)
 	}
 }
