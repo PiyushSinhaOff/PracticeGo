@@ -53,13 +53,16 @@ func DecodeJson() {
 
 	if checkValid {
 		fmt.Println("JSON was valid")
-		json.Unmarshal(jsonDataFromWeb, &lcoCourse)
+		err := json.Unmarshal(jsonDataFromWeb, &lcoCourse)
+		if err != nil {
+			panic(err)
+		}
 		fmt.Printf("%#v\n", lcoCourse)
 	} else {
 		fmt.Println("JSON WAS NOT VALID")
 	}
 
-	// some cases where you just want to add data to key value
+	// some cases where you just want to add data to key value as when we are not sure about the structure of json coming
 
 	var myOnlineData map[string]interface{}
 	json.Unmarshal(jsonDataFromWeb, &myOnlineData)
